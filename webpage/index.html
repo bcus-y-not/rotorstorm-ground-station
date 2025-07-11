@@ -48,7 +48,6 @@
   <script src="bootstrap-offline\js\bootstrap.min.js"></script>
 
   <script src="https://unpkg.com/sql.js@0.3.2/js/sql.js"></script>
-  <!-- <script src="https://unpkg.com/leaflet.tilelayer.mbtiles@latest/Leaflet.TileLayer.MBTiles.js"></script> -->
 
 
 
@@ -115,9 +114,6 @@
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="tab" href="#websocket">Websocket</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" href="#settings">Settings</a>
-          </li> -->
         </ul>
 
         <!-- Tab panes content-->
@@ -141,9 +137,6 @@
                 <canvas id="Acceleration"></canvas>
               </div>
               <div id="wmap"></div>
-              <!-- <div>
-                <canvas id="Pressure"></canvas>
-              </div> -->
             </div>
           </div>
 
@@ -153,12 +146,6 @@
 
           <div class="tab-pane container fade" id="simulation" display: flex;>
             <div class="centered">
-              <!-- <form method="post" enctype="multipart/form-data">
-                <label for="file"></label>
-                <input id="file" name="file" type="file">
-                <button class="btn btn-primary">Upload</button> 
-              </form> -->
-              <!-- <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Open File</button> -->
               <input type="file" id="fileInput" accept=".txt" onchange="displayFile()">
             </div>
             <div class="centered-simp">
@@ -168,7 +155,6 @@
                 <button class="btn btn-danger" id="sim-disable-btn">Disable</button>
               </div>
             </div>
-            <!-- <div class="last-command">Last command sent: <br>CMD,3194,SIMP,101325</div> -->
             <div id="last-command" data-label="last-command"><span class="dynamic"></span></div>
             <div id="log-sim" style="float:right;"></div>
           </div>
@@ -191,29 +177,10 @@
               </label>
             </div>
           </div>
-
-          <!-- <div class="tab-pane container fade" id="settings">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="darkModeToggle"></input>
-              <label class="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
-            </div>
-          </div> -->
         </div>
+
         <footer id="footer">
           <div class="button-grid">
-            <!-- <div class="vr"></div> -->
-            <!-- Two stacked switches -->
-            <!-- <div class="j d-flex flex-column justify-content-between">
-              <div class="form-check form-switch mb-2">
-                <input class="form-check-input" type="checkbox" id="switch1" checked>
-                <label class="form-check-label" for="switch1">Stabilized Camera</label>
-              </div>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="switch2">
-                <label class="form-check-label" for="switch2">Autogyro Camera</label>
-              </div>
-            </div> -->
-            <!-- Vertical line -->
             <div class="vr"></div>
 
             <!-- Switch + Button -->
@@ -222,34 +189,12 @@
                 <input class="form-check-input" type="checkbox" id="switch3">
                 <label class="form-check-label" for="switch3">Telemetry</label>
               </div>
-              <!-- <button class="btn btn-primary">Action</button> -->
             </div>
             
             <div class="vr"></div>
-  
-              <!-- <button class="btn btn-warning" id="fli-btn">FLIGHT</button>
-              <button class="btn btn-warning" id="sim-btn">SIM</button>
-
-
-            <div class="vr"></div> -->
-
-            <!-- <div class="dropdown dropup">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Time Source
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">GPS</a></li>
-              <li><a class="dropdown-item" href="#">Computer</a></li>
-              <li><a class="dropdown-item" href="#">Custom</a></li>
-            </ul>
-          </div> -->
           
             <button class="btn btn-secondary" id="gps-btn">GPS Time</button>
             <button class="btn btn-secondary" id="com-btn">COM Time</button>
-
-
-            <!-- <button type="button" class="btn btn-secondary">Send Time</button> -->
 
             <div class="vr"></div>
 

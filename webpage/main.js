@@ -6,7 +6,7 @@ var radius_width = 0
 var xlabel_disp = false
 var ylabel_disp = false
 
-let csvRows = [];  // Will store all CSV rows as strings
+let csvRows = [];  // store all CSV rows as strings
 let csvIndex = 0;  // Track the current row
 let csvInterval = null;  // Interval timer
 
@@ -15,22 +15,12 @@ var map = L.map('map').setView([38.1854661, -79.0655761], 14);
 var wmap = L.map('wmap').setView([38.1854661, -79.0655761], 14);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    // attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    // attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(wmap);
-// L.tileLayer.mbTiles('webpage/osm-2020-02-10-v3.11_us_virginia.mbtiles').addTo(map);
-// L.tileLayer.mbTiles('webpage/osm-2020-02-10-v3.11_us_virginia.mbtiles').addTo(wmap);
-// L.tileLayer('http://localhost:3000/services/va/tiles/{z}/{x}/{y}.png', {
-//   attribution: '© OpenStreetMap contributors',
-//   maxZoom: 14
-// }).addTo(map);
-// L.tileLayer('http://localhost:3000/services/va/tiles/{z}/{x}/{y}.png', {
-//   attribution: '© OpenStreetMap contributors',
-//   maxZoom: 14
-// }).addTo(wmap);
 
 
 var latlngs = [];
@@ -38,8 +28,6 @@ var latlngs = [];
 var polyline = L.polyline(latlngs, {color: 'red', weight: 8,}).addTo(map);
 var polyline = L.polyline(latlngs, {color: 'red', weight: 8,}).addTo(wmap);
 
-// // zoom the map to the polyline
-// map.fitBounds(polyline.getBounds());
 
 
 // Add a log message
@@ -60,8 +48,6 @@ function update() {
         dynamicPart.textContent = chunk.join(', '); // Update only the dynamic part
     }); 
 
-    //map update
-    // polyline.addLatLng([msgArr[21].slice(0,2) + "." + msgArr[21].slice(2), msgArr[22].slice(0,3) + "." + msgArr[22].slice(3)]); //FIX
     polyline.addLatLng([msgArr[21], msgArr[22]]);
 
 }
@@ -83,7 +69,6 @@ document.getElementById('connect-btn').addEventListener('click', () => {
         // Attempt to split the data from websocket
         try {
             msgArr = event.data.split(",");
-            // foo(msgArr);
         } catch (error) {
             console.error("Error splitting data:", error);
         }
@@ -151,7 +136,6 @@ document.getElementById("switch3").addEventListener("change", function() {
 
 document.getElementById('clr-btn').addEventListener('click', () => {
     var chart_full_lst = [chart_a, chart_acc, chart_m, chart_v, chart_t]
-    // removeData(chart_v)
     chart_full_lst.forEach((item) => {
         removeData(item);
     });
@@ -252,7 +236,7 @@ const ctx_v = document.getElementById('Voltage').getContext('2d');
 const chart_v = new Chart(ctx_v, {
     type: 'line',
     data: {
-        labels: [], // X-axis labels (e.g., 0, 1, 2, ...)
+        labels: [], 
         datasets: [{
             label: 'Volts (V)',
             data: [], // Y-axis data
@@ -286,7 +270,7 @@ const ctx_a = document.getElementById('Altitude').getContext('2d');
 const chart_a = new Chart(ctx_a, {
     type: 'line',
     data: {
-        labels: [], // X-axis labels (e.g., 0, 1, 2, ...)
+        labels: [], 
         datasets: [{
             label: 'Altitude (m)',
             data: [], // Y-axis data
@@ -321,7 +305,7 @@ const ctx_t = document.getElementById('Temperature').getContext('2d');
 const chart_t = new Chart(ctx_t, {
     type: 'line',
     data: {
-        labels: [], // X-axis labels (e.g., 0, 1, 2, ...)
+        labels: [], 
         datasets: [{
             label: 'Temperature (C)',
             data: [], // Y-axis data
@@ -355,7 +339,7 @@ const ctx_m = document.getElementById('Magnetism').getContext('2d');
 const chart_m = new Chart(ctx_m, {
     type: 'line',
     data: {
-        labels: [], // X-axis labels (e.g., 0, 1, 2, ...)
+        labels: [], 
         datasets: [
             {
                 label: 'Magnetism R (gauss)',
@@ -455,9 +439,8 @@ const chart_acc = new Chart(ctx_acc, {
 const chartlst = [chart_v, chart_a, chart_t];
 const chart_data = []
 
-// Function to update the chart with new data
+// update the charts with new data
 function updateChart() {
-    // prevent undefined access
     if (msgArr.length >= 9 && msgArr[0].toString().includes("3194")) {
         // Add new x-axis label (based on the length of the labels array)
         chartlst.forEach((chart, index) => {
